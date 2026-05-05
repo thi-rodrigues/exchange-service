@@ -19,5 +19,11 @@ spring:
       ddl-auto: none
     properties:
       hibernate:
-    show-sql: true
+    show-sql: false
     open-in-view: false
+    
+springdoc:
+  api-docs:
+    path: /exchange-service/v3/api-docs
+  swagger-ui:
+    url: /exchange-service/v3/api-docs

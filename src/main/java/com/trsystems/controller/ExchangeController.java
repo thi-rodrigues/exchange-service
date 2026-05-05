@@ -13,6 +13,10 @@ import com.trsystems.environment.InstanceInformation;
 import com.trsystems.model.Exchange;
 import com.trsystems.repository.ExchangeRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@Tag(name = "Exchange Endopoint")
 @RestController
 @RequestMapping("exchange-service")
 public class ExchangeController {
@@ -22,7 +26,8 @@ public class ExchangeController {
 	@Autowired
 	private ExchangeRepository exchangeRepository;
 
-	@GetMapping(value="/{amount}/{from}/{to}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@Operation(summary = "Get an exchange from amount of current")
+	@GetMapping(value = "/{amount}/{from}/{to}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Exchange getExchange(
 			@PathVariable BigDecimal amount, 
 			@PathVariable String from, 
